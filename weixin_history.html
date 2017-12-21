@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--headTrap<body></body><head></head><html></html>--><html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+
+        <script nonce="" type="text/javascript">
+            window.logs = {
+                pagetime: {}
+            };
+            window.logs.pagetime['html_begin'] = (+new Date());
+        </script>
+        
+        <link rel="dns-prefetch" href="//res.wx.qq.com">
+<link rel="dns-prefetch" href="//mmbiz.qpic.cn">
+<link rel="shortcut icon" type="image/x-icon" href="//res.wx.qq.com/mmbizwap/zh_CN/htmledition/images/icon/common/favicon22c41b.ico">
+<script nonce="" type="text/javascript">
+    String.prototype.html = function(encode) {
+        var replace =["&#39;", "'", "&quot;", '"', "&nbsp;", " ", "&gt;", ">", "&lt;", "<", "&amp;", "&", "&yen;", "¥"];
+        if (encode) {
+            replace.reverse();
+        }
+        for (var i=0,str=this;i< replace.length;i+= 2) {
+             str=str.replace(new RegExp(replace[i],'g'),replace[i+1]);
+        }
+        return str;
+    };
+
+    window.isInWeixinApp = function() {
+        return /MicroMessenger/.test(navigator.userAgent);
+    };
+
+    window.getQueryFromURL = function(url) {
+        url = url || 'http://qq.com/s?a=b#rd'; 
+        var tmp = url.split('?'),
+            query = (tmp[1] || "").split('#')[0].split('&'),
+            params = {};
+        for (var i=0; i<query.length; i++) {
+            var arg = query[i].split('=');
+            params[arg[0]] = arg[1];
+        }
+        if (params['pass_ticket']) {
+        	params['pass_ticket'] = encodeURIComponent(params['pass_ticket'].html(false).html(false).replace(/\s/g,"+"));
+        }
+        return params;
+    };
+
+    (function() {
+	    var params = getQueryFromURL(location.href);
+        window.uin = params['uin'] || "777" || '';
+        window.key = params['key'] || "777" || '';
+        window.wxtoken = params['wxtoken'] || '';
+        window.pass_ticket = params['pass_ticket'] || '';
+        window.appmsg_token = "933_TKgEhBtRvl8inoCcbcE07zBPeVXaEJ8aWZKLqw~~";
+    })();
+
+    function wx_loaderror() {
+        if (location.pathname === '/bizmall/reward') {
+            new Image().src = '/mp/jsreport?key=96&content=reward_res_load_err&r=' + Math.random();
+        }
+    }
+
+</script>
+
+        <title></title>
+
+<link onerror="wx_loaderror(this)" rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.2.0/weui.css">
+<link onerror="wx_loaderror(this)" rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.1/weui.css">
+
+<link rel="stylesheet" type="text/css" href="//res.wx.qq.com/mmbizwap/zh_CN/htmledition/style/page/profile/index3944ad.css" />
+
+    </head>
+    <body id="" class="zh_CN ">
+
+<script type="text/javascript">
+    if (window.location != window.parent.location) {
+        window.location.href = 'http://mp.weixin.qq.com/mp/readtemplate?t=wxm-cannot-open#wechat_redirect';
+    }
+    var pass_ticket = "kOCI3lXO0eYxAwArDjBNQFlAsUrAUSA6Wk0E5XpMhk3r+kfAxHebkVuHXbtom7IK" || "";
+    var uin = "777" || "";
+    var key = "777" || "";
+</script>
+
+<div class="weui-search-bar" title="搜索" role="search" aria-label="搜索公众号文章" id="js_search" style="display:none;">
+    <div class="weui-search-bar__form" style="-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;">
+        <label class="weui-search-bar__label">
+            <i class="weui-icon-search"></i>
+            <span>搜索</span>
+        </label>
+    </div>
+</div>
+<div class="profile_info appmsg">
+    <span class="radius_avatar profile_avatar">
+        <img src="http://wx.qlogo.cn/mmhead/Q3auHgzwzM47AKAkJ990UXQIfTFBialhlSEiaHOGGn9ehu0yQ0icp6Svg/0" id="icon">
+    </span>
+    <strong class="profile_nickname" id="nickname">
+        罗辑思维    </strong>
+        <p class="profile_desc">
+                每天一段60秒语音，一篇新角度看世界的文章。关注罗胖，让你每天比别人知道的多一些。            </p>
+    <div class="profile_opr" style="display: none;" id="js_button">
+        <a href="javascript:void(0);" id="js_btn_add_contact" class="weui_btn weui_btn_plain_primary" style="display:none;">关注</a>
+        <a href="javascript:void(0);" id="js_btn_view_profile" class="weui_btn weui_btn_plain_primary" >发消息</a>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var is_ok = 1;
+    var scene = "124" || "";
+    var a8scene = "3";
+
+    (function() {
+        var is_android = /(Android)/i.test(navigator.userAgent);
+
+        var __JSAPI__ = {
+            ready: function(onBridgeReady) {
+                var _onBridgeReady = function() {
+                    if (!!onBridgeReady) {
+                        onBridgeReady();
+                    }
+                };
+
+                if (typeof top.window.WeixinJSBridge == "undefined" || !top.window.WeixinJSBridge.invoke) {
+
+                    if (top.window.document.addEventListener) {
+                        top.window.document.addEventListener('WeixinJSBridgeReady', _onBridgeReady, false);
+                    } else if (top.window.document.attachEvent) {
+                        top.window.document.attachEvent('WeixinJSBridgeReady', _onBridgeReady);
+                        top.window.document.attachEvent('onWeixinJSBridgeReady', _onBridgeReady);
+                    }
+                } else {
+
+                    _onBridgeReady();
+                }
+            },
+            invoke: function(methodName, args, callback) {
+                this.ready(function() {
+
+                    if (typeof top.window.WeixinJSBridge != "object" ) {
+                        alert("请在微信中打开此链接！");
+                        return false;
+                    }
+                    top.window.WeixinJSBridge.invoke(methodName, args, function(ret){
+                        if (!!callback) {
+                            callback.apply(window, arguments);
+                            var err_msg = ret && ret.err_msg ? ", err_msg-> " + ret.err_msg : "";
+                            console.info("[jsapi] invoke->" + methodName + err_msg);
+                        }
+                    });
+                });
+            }
+        }
+        var __Ajax__ = function(obj) {
+
+            var type = (obj.type || 'GET').toUpperCase();
+            var async = typeof obj.async == 'undefined' ? true : obj.async;
+            var url = obj.url;
+            var xhr = new XMLHttpRequest();
+            var timer = null;
+            var data = null;
+
+            if (typeof obj.data == "object"){
+                var d = obj.data;
+                data = [];
+                for(var k in d) {
+                    if (d.hasOwnProperty(k)){
+                        data.push(k + "=" + encodeURIComponent(d[k]));
+                    }
+                }
+                data = data.join("&");
+            }else{
+                data = typeof obj.data  == 'string' ? obj.data : null;
+            }
+
+            xhr.open(type, url, async);
+            var _onreadystatechange = xhr.onreadystatechange;
+
+            xhr.onreadystatechange = function() {
+
+                if (typeof _onreadystatechange == 'function') {
+                    _onreadystatechange.apply(xhr);
+                }
+                if ( xhr.readyState == 3 ) {
+                    obj.received && obj.received(xhr);
+                }
+                if ( xhr.readyState == 4 ) {
+                    xhr.onreadystatechange = null;
+                    var status = xhr.status;
+                    if ( status >= 200 && status < 400 ) {
+                        var responseText = xhr.responseText;
+                        var resp = responseText;
+                        if (obj.dataType == 'json'){
+                            try{
+                                resp = eval("(" + resp + ")");
+                            }catch(e){
+                                obj.error && obj.error(xhr);
+                                return;
+                            }
+                        }
+                        obj.success && obj.success(resp);
+                    } else {
+                        obj.error && obj.error(xhr);
+                    }
+                    clearTimeout(timer);
+                    obj.complete && obj.complete();
+                    obj.complete = null;
+                }
+            };
+            if( type == 'POST' ){
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            }
+            xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+            if( typeof obj.timeout != 'undefined' ){
+                timer = setTimeout(function(){
+                    xhr.abort("timeout");
+                    obj.complete && obj.complete();
+                    obj.complete = null;
+                }, obj.timeout);
+            }
+            try{
+                xhr.send(data);
+            } catch ( e ) {
+                obj.error && obj.error();
+            }
+        }
+        if (navigator.userAgent.indexOf("WindowsWechat") != -1) {
+            __Ajax__({
+                type: 'POST',
+                dataType: 'json',
+                url: '/mp/profile_ext?action=urlcheck&uin=' + window.uin + '&key=' + window.key + '&pass_ticket=' + window.pass_ticket + "&appmsg_token=" + window.appmsg_token,
+                data: {
+                    __biz: 'MjM5NjAxOTU4MA==',
+                    scene: scene,
+                    url_list: ''
+                },
+                success: function(res) {}
+            });
+            return ;
+        }
+        __JSAPI__.invoke('getRouteUrl', {}, function(res) {
+            if (res.err_msg.indexOf('ok') != -1) {
+                var url = res.urls;
+                if (is_android) {
+                    url = JSON.parse(url);
+                }
+                __Ajax__({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/mp/profile_ext?action=urlcheck&uin=' + window.uin + '&key=' + window.key + '&pass_ticket=' + window.pass_ticket + "&appmsg_token=" + window.appmsg_token,
+                    data: {
+                        __biz: 'MjM5NjAxOTU4MA==',
+                        scene: scene,
+                        url_list: JSON.stringify({url_list: url})
+                    },
+                    success: function(res) {
+                        if (res.is_ok == 0) {
+                            document.getElementById('js_button').style.display = 'none';
+                            is_ok = 0;
+                        } else {
+                            document.getElementById('js_button').style.display = '';
+                            is_ok = 1;
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('js_button').style.display = '';
+                __Ajax__({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/mp/profile_ext?action=urlcheck&uin=' + window.uin + '&key=' + window.key + '&pass_ticket=' + window.pass_ticket + "&appmsg_token=" + window.appmsg_token,
+                    data: {
+                        __biz: 'MjM5NjAxOTU4MA==',
+                        scene: scene,
+                        url_list: ''
+                    },
+                    success: function(res) {}
+                });
+            }
+        });
+    })();
+</script>
+
+<div class="weui_category_title js_tag">所有消息</div>
+<div id="js_container"></div>
+
+
+
+        <script nonce="">
+    var __DEBUGINFO = {
+        debug_js : "//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/debug/console34c264.js",
+        safe_js : "//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/safe/moonsafe34c264.js",
+        res_list: []
+    };
+</script>
+
+<script nonce="" type="text/javascript">
+(function() {
+	var totalCount = 0,
+			finishCount = 0;
+
+	function _loadVConsolePlugin() {
+		window.vConsole = new window.VConsole();
+		while (window.vConsolePlugins.length > 0) {
+			var p = window.vConsolePlugins.shift();
+			window.vConsole.addPlugin(p);
+		}
+	}
+
+	function _addVConsole(uri, cb) {
+		totalCount++;
+		var url = '//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/' + uri;
+		var node = document.createElement('SCRIPT');
+		node.type = 'text/javascript';
+		node.src = url;
+		node.setAttribute('nonce', '');
+		if (cb) {
+			node.onload = cb;
+		}
+		document.getElementsByTagName('head')[0].appendChild(node);
+	}
+	if (
+		(document.cookie && document.cookie.indexOf('vconsole_open=1') > -1)
+		|| location.href.indexOf('vconsole=1') > -1
+	) {
+		window.vConsolePlugins = [];
+		_addVConsole('3.0.0/vconsole.min.js', function() {
+
+			_addVConsole('plugin/vconsole-mpopt/1.0.1/vconsole-mpopt.js', _loadVConsolePlugin);
+		});
+	}
+})();
+</script>
+
+        <script>window.__moon_host = 'res.wx.qq.com';window.moon_map = {"biz_common/utils/respTypes.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/utils/respTypes3518c6.js","biz_common/utils/url/parse.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/utils/url/parse36ebcf.js","biz_common/template-2.0.1-cmd.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/template-2.0.1-cmd3518c6.js","biz_common/utils/wxgspeedsdk.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/utils/wxgspeedsdk3518c6.js","biz_common/utils/emoji_data.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/utils/emoji_data3518c6.js","biz_wap/utils/ajax.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/utils/ajax38c31a.js","history/profile_history_v2.html.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/history/profile_history_v2.html3986e2.js","biz_common/utils/string/html.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/utils/string/html3518c6.js","history/template_helper.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/history/template_helper24f185.js","common/zepto.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/common/zepto1b4b91.js","appmsg/cdn_img_lib.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/appmsg/cdn_img_lib38b7bb.js","biz_wap/jsapi/core.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/jsapi/core34c264.js","history/performance.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/history/performance3717bc.js","biz_wap/utils/mmversion.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/utils/mmversion34c264.js","biz_common/dom/event.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_common/dom/event3a25e9.js","history/profile_history_v2.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/history/profile_history_v23986e2.js","appmsg/profile.js":"//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/appmsg/profile39f74d.js"};</script><script type="text/javascript">window.__wxgspeeds={}; window.__wxgspeeds.moonloadtime=+new Date()</script><script onerror="wx_loaderror(this)"  type="text/javascript" src="//res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/biz_wap/moon368f86.js"></script>
+<script type="text/javascript">
+
+    document.domain = "qq.com";
+    var username = "" || "gh_3ea2f8e78a9c";
+    var is_subscribed = "1" * 1;
+    var action = "home" || "";
+    var bizacct_type = "" || "";
+    var can_msg_continue = '1' * 1;
+    var headimg = "http://wx.qlogo.cn/mmhead/Q3auHgzwzM47AKAkJ990UXQIfTFBialhlSEiaHOGGn9ehu0yQ0icp6Svg/0" || "";
+    var nickname = "罗辑思维" || "";
+    var is_banned = "0" * 1;
+    var __biz = "MjM5NjAxOTU4MA==";
+    var next_offset = "10" * 1;
+    var use_demo = "0" * 1;
+
+
+        var msgList = '{&quot;list&quot;:[{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010531,&quot;type&quot;:49,&quot;datetime&quot;:1512253891,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;关于进化论,你理解的可能都是错的&quot;,&quot;digest&quot;:&quot;进化，原来是这样进行的&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719370,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009203020&amp;amp;idx=1&amp;amp;sn=79b80b75f1edc39746a00fcb82eb0bc8&amp;amp;chksm=9047c75fa7304e4928d47628f6a8f45f04f4a32747190819c37a9df153b888555207f8932ea3&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SlOP3Qu42AribH8SaZHPFmoDqjv7eaWVTricQuzmGuTGWswbTPdypkOUVjLAXED2SbnKibGduItaASw\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：诺贝尔奖设立时，为何会被骂？&quot;,&quot;digest&quot;:&quot;多数情况下，人是种短视的动物&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719336,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009203020&amp;amp;idx=2&amp;amp;sn=dd9d9e6d03fecebddf6b7e968177f33d&amp;amp;chksm=9047c75fa7304e49bd50e52dc61923e84d494d6d627d435489958ae21261886ab8390882a176&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SlOP3Qu42AribH8SaZHPFmoYZ0vcJ56Lfib9SaOIic2Jo0e5I1UP31QkWxtvGRicziaGQVVEDIvQ6rGfg\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;读三国，为什么行家都爱这个版本&quot;,&quot;digest&quot;:&quot;历时两年精心打磨，家庭收藏经典之作&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719341,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009203020&amp;amp;idx=3&amp;amp;sn=0b5265d641a977b076396c8efba7821b&amp;amp;chksm=9047c75fa7304e49a631223a6c29232dba5aece14f71cf5fa427205d11ff1f7ee63455f42782&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SlOP3Qu42AribH8SaZHPFmo3S7fXjTpZZWSjVCDXRRju6w4A3HwLWHIBy6ib1CNTueRocM6VOGu0sQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;如何识破谣言，做一个明白人&quot;,&quot;digest&quot;:&quot;建立科学思维，不再被谣言牵着鼻子走&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719359,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009203020&amp;amp;idx=4&amp;amp;sn=41f59d0f7a04bf7382d8efa38a042310&amp;amp;chksm=9047c75fa7304e49c2b93d70d8472129f224f2ff214ecf3c58a245c299e2e26cb432b824d867&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SlOP3Qu42AribH8SaZHPFmo1j0D6Bc1oyt3UMjvdA3b0KjmCodk9xMkyECczcGRibl2vctmCrDjiabA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010530,&quot;type&quot;:49,&quot;datetime&quot;:1512167436,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;2017年最好的25大发明，你最钟爱哪个？&quot;,&quot;digest&quot;:&quot;这些，正悄然改变着我们的生活&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719329,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202979&amp;amp;idx=1&amp;amp;sn=a7998446e3d0cd8b432defe69e469769&amp;amp;chksm=9047c730a7304e26996bbba72d921722dc5c5a42b855eabe9b95cab2a83862c44d4c2b0ef91c&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SMoPIicRjp3qMMk3XnVP3UazRQzwpa5MibMhic83XcNzGEWIrtJWBnnDItTOIO0JwWPAaGlUaoSObOA\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：什么是最好的领导力？&quot;,&quot;digest&quot;:&quot;胜仗打多了，领导力自然就建立了&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719282,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202979&amp;amp;idx=2&amp;amp;sn=4e2bc1d091095dfdf3984e4ce66cafa5&amp;amp;chksm=9047c730a7304e26c49fb300fbd8edadd80947967bea04d3d8809d962b01bc75d0e1ca3e68f7&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SMoPIicRjp3qMMk3XnVP3UaOibjtjhIOAtL4OnDNVtXAWXZz6Elwcko4ONW3tXHgVZicB50CqIqWEiaw\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;如何在智能时代，取得更大的成功&quot;,&quot;digest&quot;:&quot;帮你掌握属于未来时代的行动方法论&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719323,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202979&amp;amp;idx=3&amp;amp;sn=73f6f2117c466ff8dfd3f8b052343c36&amp;amp;chksm=9047c730a7304e2660fe01e619aaece58bc7da54bd6d8b40595c1ce141d266efd69211904e82&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SMoPIicRjp3qMMk3XnVP3Uaa9WT5ae24dhcBL8dJ9tlGialkRBqXSnvrbphCbhjVqjxm3YmEiawywXg\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;一个高手的英语学习指南&quot;,&quot;digest&quot;:&quot;用碎片化时间，你也可以成为英语高手&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719320,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202979&amp;amp;idx=4&amp;amp;sn=dcd97a8106f5b5eefd215b98551bfd4e&amp;amp;chksm=9047c730a7304e2640c96547f28323c6450d2ad1e74ce3f24e1b822767e367ffc6357354895a&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6SMoPIicRjp3qMMk3XnVP3UaiafceibN2aKnZDC4icXSibugHYmRkiawodH13mKF9jdWlpHnicYZbzw6bZQQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;马徐骏&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010529,&quot;type&quot;:49,&quot;datetime&quot;:1512081073,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;即将到来的智能时代，你做好准备了吗？&quot;,&quot;digest&quot;:&quot;一份智能时代的行动指南&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719278,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202928&amp;amp;idx=1&amp;amp;sn=5a76b405c4a2fc581403e59a85358eaf&amp;amp;chksm=9047c6e3a7304ff546c8eee39dbd77b5b9cd16eb8bd77957e42b7d1e50cf03c303af25ba42bc&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Syp2mOUNEBNbOWy3UWfbmKZicOKlBnDsqGbMqiaFhMIvbuNxxxibtwpHBTXNKNnMibceBP3ibQG699Bbg\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：如何在未来不被淘汰&quot;,&quot;digest&quot;:&quot;智能时代，你必须掌握全新的思维方式&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719266,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202928&amp;amp;idx=2&amp;amp;sn=c19d64cdc26df83bdb3041b3eba6185f&amp;amp;chksm=9047c6e3a7304ff563dc22c4fc5116a377aadf93a011ee53b12a13b0cf7bd67503eb3591c9c3&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Syp2mOUNEBNbOWy3UWfbmKRNUWoicqLibd92G6340KaG0YTiaWQess3EX46DbmFms9WGQ4tSVibASAjA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;吴军&quot;,&quot;copyright_stat&quot;:14,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010528,&quot;type&quot;:49,&quot;datetime&quot;:1511994720,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;如果同时跟10个团队协作，你该怎么办？&quot;,&quot;digest&quot;:&quot;合同上存在甲方乙方，协作中只有共同目标&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719259,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202912&amp;amp;idx=1&amp;amp;sn=999847b3ada696f1f4b7d386614135ba&amp;amp;chksm=9047c6f3a7304fe5d5b00bc158e30b95d7434ccb4f1411e63f5c39e0363fd32b5665217470bb&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6RgluYTaZcVcNJuMbeDJLl9SBLs27c6r6f2icn5PibyNCgviaqK2E2a6BcNlJ8rm8PxfbnW8MzzOe39g\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：如何加入一家理想的公司？&quot;,&quot;digest&quot;:&quot;用投资的心态，去应对求职&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719241,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202912&amp;amp;idx=2&amp;amp;sn=8738dc75549ee9252228f2d0e714ea70&amp;amp;chksm=9047c6f3a7304fe5849a130f65f8d0db7d78849378c4318ecb484eaf43eefde11c46ab5fccc8&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6RgluYTaZcVcNJuMbeDJLl97EjkhYn0Cy2kJOussficGJG2c1v2SgkibMKTtfT67tttrJXcSib5luQuA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;今日直播丨如何提高人生的投资回报率&quot;,&quot;digest&quot;:&quot;用商业理论，做人生的长线规划&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719250,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202912&amp;amp;idx=3&amp;amp;sn=53338f41add703c2be5014aad7df2f48&amp;amp;chksm=9047c6f3a7304fe5f793d7df2d02cd1d82cb81fe4f4320ef0d02a5bd92eca856d70ce5793c1a&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6RgluYTaZcVcNJuMbeDJLl9qB9ialqdw6CEuiaOygLdohzTPSG93YpLHhm8m28S6D3xfr89gLt81pWQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;上新好价&nbsp;|&nbsp;一个灵活能装、细节周到、背负舒适的双肩包&quot;,&quot;digest&quot;:&quot;天再冷，风再大，也都不怕&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719261,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202912&amp;amp;idx=4&amp;amp;sn=8a56b3a5805331a0d72b8762a195396b&amp;amp;chksm=9047c6f3a7304fe588a3534a77d779599e54cc947650d8277d346ef8af1161f0c1617e31c418&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6RgluYTaZcVcNJuMbeDJLl9vjlCibwQmVbIMiaLG5AYVFjI0a3N36GCxAOCzOlg31he7SxbeVDYWZoA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010527,&quot;type&quot;:49,&quot;datetime&quot;:1511908226,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;职场法则｜做最重要的事，而不做背锅侠&quot;,&quot;digest&quot;:&quot;把事做成的，才是真正的赢家&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719229,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202879&amp;amp;idx=1&amp;amp;sn=a47188dbb8065b9e7ace71bd7f0b810a&amp;amp;chksm=9047c6aca7304fba20ba9f548cb0f356d31699c974652a7145558cc1f482f29144f62579fb53&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S9Vuz8shjicj83DEKxhPN1FL08r3WvX40gGkqibRpHTsfdFt60iaAn3snJwxEicvTicB4fJibVOwdW8Jaw\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：张爱玲的影响力&quot;,&quot;digest&quot;:&quot;有什么样的时代，就会召唤什么样的才人&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719191,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202879&amp;amp;idx=2&amp;amp;sn=d47a31b71d9b2728850a6e6d3aabc06a&amp;amp;chksm=9047c6aca7304fba66a4e1e22978d5d19e5b85176b6328e7515e60f8b3ce6cdb4c30fd7ed48f&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S9Vuz8shjicj83DEKxhPN1FYic64UUUCApOPIJDoeIE6E5CoNkLH8B9YB6TibVHVjATfRu6YdaDvZicw\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;如何一次读懂《三国演义》&quot;,&quot;digest&quot;:&quot;这才是《三国演义》正确的阅读姿势&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719204,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202879&amp;amp;idx=3&amp;amp;sn=16f8f395401e6eb1b1f0eb0568c13a26&amp;amp;chksm=9047c6aca7304fba5e6e562998404d73af8eb5a413ff33a73f2c2a480de81156294f8b864c91&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S9Vuz8shjicj83DEKxhPN1Faebic7TjsKE1zic2YXzibHAniaRTDJZtDQjfSvQDlpaKWiaGlC4VPEE4t1g\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;福利&nbsp;|&nbsp;电影《至爱梵高》免费抢鲜看&quot;,&quot;digest&quot;:&quot;邀所有的艺术爱好者，一起看电影啦&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719219,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202879&amp;amp;idx=4&amp;amp;sn=6550ad7d7bf58dcf561d3d49d7385bd6&amp;amp;chksm=9047c6aca7304fba29eaf7310cca2b9134bd0b5ecc0ad5957ca0158e798587522cca38d74d61&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S9Vuz8shjicj83DEKxhPN1FictjoL5nCTv1vds0xFiamuRAlK4y6xVRKG6C53aknLJicc1SM5ZkuKdTQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010526,&quot;type&quot;:49,&quot;datetime&quot;:1511821851,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;领导力，就是十句话&quot;,&quot;digest&quot;:&quot;是否拥有领导力，和职务的大小无关&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719173,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202837&amp;amp;idx=1&amp;amp;sn=3624ced2e8070a79e283c03851023a13&amp;amp;chksm=9047c686a7304f90c50e7e630941122313cb898febdce6df3002756273f4edc73e763e5a64e8&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Q1TMHadXSZyQPice7yJS0zewYGJOGBCGpYQzia6h8FoPZoGutKYFs09YwQxlwBic1ULutXSosco7jcw\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：正常化偏误&quot;,&quot;digest&quot;:&quot;为啥会有人对眼前的灾难视而不见？&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719102,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202837&amp;amp;idx=2&amp;amp;sn=4fe9f9d0ead3d5925b2dd0300006e854&amp;amp;chksm=9047c686a7304f9072ae004c39d3aa96fbcf10b01ecb34c7a79bf82bde04dc5186fb992d2f1b&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Q1TMHadXSZyQPice7yJS0zeo5wnbLict7UYx3CzNicHDxDJ2u5yERQ1ucU80hhLUvlDpPSiabRIHGa5A\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;培养这5种能力，建立个人影响力&quot;,&quot;digest&quot;:&quot;只有这样，才能在未来的职场走得更远&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719187,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202837&amp;amp;idx=3&amp;amp;sn=0784c039d72d622ce36881f7b9ae34ac&amp;amp;chksm=9047c686a7304f906bd1c70fca41c2aff811e266fa778569f9d1f4a302e2b893ce755700b8a3&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Q1TMHadXSZyQPice7yJS0ze6PY1HHrXmQUuuUh7IGQPic6gFibpxRy9tYEXaYiaOanOrqHbibIiaRMlZNA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;你以为的常识，可能都是错的&quot;,&quot;digest&quot;:&quot;真正的经典，该这样读&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719181,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202837&amp;amp;idx=4&amp;amp;sn=3ab09a12ecbc6c80397bbd143feec175&amp;amp;chksm=9047c686a7304f9081229f8e64b7f6e19a9fc102be944b38ea6e2a2a726d03ccfd5a82f2f062&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6Q1TMHadXSZyQPice7yJS0ze5qFuyUp36FTAZHIfzjGchfjwlyUg30cgHPsBUoyRkomCfEpCUu6ODg\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010525,&quot;type&quot;:49,&quot;datetime&quot;:1511735368,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;注意力稀缺，文章怎么写才能吸引人？&quot;,&quot;digest&quot;:&quot;写作不是特长，而是技能，一种必备的职场技能&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719090,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202747&amp;amp;idx=1&amp;amp;sn=f6e6135daff8644a10101656a971e9af&amp;amp;chksm=9047c628a7304f3e83696bdad4cf733453cae908e4d162ec1c11e90e29c24fb89605c0576805&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6TzvLIwNTkN2URyCtVan4NqKwSvEVSPvaxBlgmWhHm0ia7dtEsJiaLZQicAaAQam3Rsd4UXImxm208iag\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：如何激发阅读快感&quot;,&quot;digest&quot;:&quot;人们的阅读习惯已经悄然改变&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719095,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202747&amp;amp;idx=2&amp;amp;sn=238a43829253b210d09db644dd39fd43&amp;amp;chksm=9047c628a7304f3ec75be515fe5420f2a51988c03b097a3c3cf8ec6e2a085cf80444cc788e0d&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6TzvLIwNTkN2URyCtVan4NqgvEibXHNPXPXuBEQXLOdhH39Kd1FC5bmxnmLwGReKzLLOHP7zvmCOicQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;今日直播丨吴军来了：揭秘前2%的人的进阶方法论&quot;,&quot;digest&quot;:&quot;带你武装自己，从容应对机器智能的挑战&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861718987,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202747&amp;amp;idx=3&amp;amp;sn=6e559ebd2f26855e903eaa15ea0ebb6b&amp;amp;chksm=9047c628a7304f3e114823c1106943dd5b6d282977708b8a6ca98c850b0a2fa710c3264e0c6f&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6T1vnBQv7uUIHicpVX7KiaXgSiaZdQMFU0Sf5zv2zDllfcyIaLgrHjBWFCUEvnJ27Oz2YEdXgTibz61Ig\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;如何读懂一本思想经典&quot;,&quot;digest&quot;:&quot;“经典难读”这个大难题，我们帮你解决&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719096,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202747&amp;amp;idx=4&amp;amp;sn=2367f50d851ceae56ec702495f799a04&amp;amp;chksm=9047c628a7304f3e0402daf6f6912423031359421f73d0081768c0d204fa7c345afffdd9be34&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6TzvLIwNTkN2URyCtVan4NqXP1ncNt9GkJ5gAXibibR8GicgsuV9OffezBE2XUHtRDG3pic6nr8tX7dhQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010524,&quot;type&quot;:49,&quot;datetime&quot;:1511649103,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;这10大科技，将彻底改变你的生活&quot;,&quot;digest&quot;:&quot;未来的生活，原来是这个样子&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719081,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202731&amp;amp;idx=1&amp;amp;sn=5aea89493e2bbe0961cef9494bfa7578&amp;amp;chksm=9047c638a7304f2ec492d1cf8e0a6bf93c9ee291dfb87f3b4168f61353ade3e1b34ffcf4c9e0&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6QShV5UIiceSW2boPXXHzzC6RSvR37oK3EAwcKicwkhFxQ6VLib5I6LZPgDxr9rdkd97HTnjPgrsNZrA\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：道德的两难&quot;,&quot;digest&quot;:&quot;天然纯洁和浪子回头，到底谁更道德？&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719068,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202731&amp;amp;idx=2&amp;amp;sn=45a8a36f52cab48392539cc900442cc7&amp;amp;chksm=9047c638a7304f2ec425509f317eac2931f2c5bc61ac50c6427c309ea704443f681c199ffa6a&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6QShV5UIiceSW2boPXXHzzC69QJbj1FxY5GesnG4UNicl8QV7Xib1sEgYAvOSZibggianyejv740LtKgSQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;6部家庭藏书，让你的书柜一步到位&quot;,&quot;digest&quot;:&quot;给家人和自己最好的精神滋养&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719079,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202731&amp;amp;idx=3&amp;amp;sn=f62f2925b016481b2b5c4ffd6b939f7c&amp;amp;chksm=9047c638a7304f2eeb07ed9f42ff8c72649d78f43bd94c431aaf54f0739d1bba17cdf0a6531e&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6QShV5UIiceSW2boPXXHzzC65eEMzxKjY9AiaC9FF3CZPDIWrzqCRuqHGMlSQXibLZtbEfRogiaicYJ8UQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;这里有一记绝招，化解你的年末读书焦虑&quot;,&quot;digest&quot;:&quot;与三万名书友一起，完成全年读书计划&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719074,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202731&amp;amp;idx=4&amp;amp;sn=816afbbe9c1edfa9004279fea53fc692&amp;amp;chksm=9047c638a7304f2e159221b3474538acca04fce22582f3552a14b7a0e9e6dfbc7de9f43cae0f&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6QShV5UIiceSW2boPXXHzzC61pQmnkaBqt5yfofP7OmW9D2Kv8vDy5Y1PwTz4R8CEEVHlKJCRn9VfA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010523,&quot;type&quot;:49,&quot;datetime&quot;:1511562593,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;如何在爆表的压力下，从容生活？&quot;,&quot;digest&quot;:&quot;面对压力，做一个乐观的悲观主义者&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719019,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202692&amp;amp;idx=1&amp;amp;sn=f805e2813be2943a918f02f08771ccb6&amp;amp;chksm=9047c617a7304f01a3efe5e649f49086ce214e8199c0456add21baab4a5e48dda529142cf9fb&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S4RDH1USFNWkFFQUWhjPqrR3ppJYzbDr3icuxFjfUqyZc374bBS6QKztdAPFGajtS3Fu6DCcJmEdQ\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：爱是智慧，恨是愚蠢&quot;,&quot;digest&quot;:&quot;没有任何人的力量，对我们是没用的&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719015,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202692&amp;amp;idx=2&amp;amp;sn=69cb655cc0e2d93669c4970845dc3730&amp;amp;chksm=9047c617a7304f01bbb728e77431cce95e33d2014810b93dedc2abeb91e0f911e5305acca16e&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S4RDH1USFNWkFFQUWhjPqr99Ej9hzEqxBTJKES1R5Sh98G5Zia2XtzUicmwxCslNET4kNKpTuSN7sw\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1},{&quot;title&quot;:&quot;这部《三国》凭什么前无古人&quot;,&quot;digest&quot;:&quot;所有细节，都做到尽善尽美&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861719042,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202692&amp;amp;idx=3&amp;amp;sn=4c7f66acf48ed98aa51d7b8b51fc5e96&amp;amp;chksm=9047c617a7304f0182b27bcc1fc972dfa7d60f1f3225956c1b4d623271306efb4919bf0f530c&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6S4RDH1USFNWkFFQUWhjPqrmxpP54h7xWJ3Xf2nVjuMP9eQ8cNQia6iasxnKganD2xmhyZxWdVl84YA\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;&quot;,&quot;copyright_stat&quot;:100,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;「得到」&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}},{&quot;comm_msg_info&quot;:{&quot;id&quot;:1000010522,&quot;type&quot;:49,&quot;datetime&quot;:1511476237,&quot;fakeid&quot;:&quot;2396019580&quot;,&quot;status&quot;:2,&quot;content&quot;:&quot;&quot;},&quot;app_msg_ext_info&quot;:{&quot;title&quot;:&quot;英雄，我等你很久了！&quot;,&quot;digest&quot;:&quot;最新家庭藏书：《毛宗岗批评本三国演义》&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861718998,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202650&amp;amp;idx=1&amp;amp;sn=0e161218e6fc7d29ee8d472b6cbfdd57&amp;amp;chksm=9047c5c9a7304cdf64bf6428fdefb9846e41e8225f13d1a072d3493e0fda7ad8d2aff81dfc00&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6T1vnBQv7uUIHicpVX7KiaXgSYDWQA5iaN2zNRH9Caj8w8Wibh2WspY6cL7TXwNw0IjgBh3Gn6TCibhe9g\\/0?wx_fmt=jpeg&quot;,&quot;subtype&quot;:9,&quot;is_multi&quot;:1,&quot;multi_app_msg_item_list&quot;:[{&quot;title&quot;:&quot;罗胖60秒：一套典藏三国，今日九转丹成&quot;,&quot;digest&quot;:&quot;我们，只给你最好的版本&quot;,&quot;content&quot;:&quot;&quot;,&quot;fileid&quot;:861718990,&quot;content_url&quot;:&quot;http:\\/\\/mp.weixin.qq.com\\/s?__biz=MjM5NjAxOTU4MA==&amp;amp;mid=3009202650&amp;amp;idx=2&amp;amp;sn=6ed582211107468ef03779672190096f&amp;amp;chksm=9047c5c9a7304cdf7451ec5b2b4d8990deeafa7c1c796703ef0d3909188729ceeb4aea34ee00&amp;amp;scene=27#wechat_redirect&quot;,&quot;source_url&quot;:&quot;&quot;,&quot;cover&quot;:&quot;http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/I0y5GhSOx6T1vnBQv7uUIHicpVX7KiaXgSKzHnQZT058GGP55koIphq7QvvgjONo2czmXicS3XCkSicfVSrUico7xibQ\\/0?wx_fmt=jpeg&quot;,&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}],&quot;author&quot;:&quot;罗振宇&quot;,&quot;copyright_stat&quot;:11,&quot;del_flag&quot;:1}}]}';
+        if(!!window.__initCatch){
+        window.__initCatch({
+            idkey : 29711,
+            startKey : 60,
+            badjsId: 47,
+
+            reportOpt : {
+                username : username,
+            }
+        });
+    }
+
+    seajs.use("appmsg/profile.js");
+</script>
+
+    </body>
+    <script nonce="" type="text/javascript">document.addEventListener("touchstart", function() {},false);</script>
+</html>
+<!--tailTrap<body></body><head></head><html></html>-->
