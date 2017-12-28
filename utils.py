@@ -1,3 +1,6 @@
+import html
+
+
 def str_to_dict(headers):
     """
     将"Host: mp.weixin.qq.com"格式的字符串转换成字典类型
@@ -16,7 +19,7 @@ def str_to_dict(headers):
 
 
 def sub_dict(d, keys):
-    return {k: d[k] for k in d if k in keys}
+    return {k: html.unescape(d[k]) for k in d if k in keys}
 
 
 def str_to_dict(s, join_symbol="\n", split_symbol=":"):
@@ -36,3 +39,8 @@ def str_to_dict(s, join_symbol="\n", split_symbol=":"):
             k, v = item.split(split_symbol, 1)
             data[k] = v.strip()
     return data
+
+
+if __name__ == '__main__':
+    d = {"a": "1", "b": 2, "c": 3}
+    print(sub_dict(d, ["a", "b"]))

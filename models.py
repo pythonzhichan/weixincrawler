@@ -11,7 +11,7 @@ from mongoengine import connect
 __author__ = "liuzhijun"
 
 # 连接 mongodb
-connect('weixin', host='localhost', port=27017)
+connect('weixin2', host='localhost', port=27017)
 
 
 class Post(Document):
