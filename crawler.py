@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import html
 import json
 import logging
 import time
 from datetime import datetime
+from urllib.parse import urlsplit
 
 import requests
 
@@ -99,31 +101,45 @@ X-Requested-With: XMLHttpRequest
         except Exception as e:
             logger.error("保存失败 data=%s" % post.to_json(), exc_info=True)
 
-    def update(self, post):
+    @staticmethod
+    def update_post(post):
 
-        post_url_params = {'__biz': 'MjM5MzgyODQxMQ==',
-                           'mid': '2650367149',
-                           'idx': '1',
-                           'sn': '5b9bc4a8029e7eb9b8a4b71d06524da9',
-                           'chksm': 'be9cdff989eb56ef143d5b03fab7e825f08ea6a96d041aa1da50e78e765a75e60d49b42d9bf6',
-                           'scene': '27'}
+        content_url_params = {'__biz': 'MjM5MzgyODQxMQ==',
+                              'mid': '2650367149',
+                              'idx': '1',
+                              'sn': '5b9bc4a8029e7eb9b8a4b71d06524da9',
+                              'chksm': 'be9cdff989eb56ef143d5b03fab7e825f08ea6a96d041aa1da50e78e765a75e60d49b42d9bf6',
+                              'scene': '27'}
 
-        url_params = {'__biz': 'MjM5MzgyODQxMQ==', 'appmsg_type': '9', 'mid': '2650367680',
-                      'sn': '2e8ef8bcf4dc176c46376508cb5a8fa7', 'idx': '1', 'scene': '21',
+        data_url_params = {'__biz': 'MjM5MzgyODQxMQ==',
+                      'appmsg_type': '9',
+                      'mid': '2650367680',
+                      'sn': '2e8ef8bcf4dc176c46376508cb5a8fa7',
+                      'idx': '1',
+                      'scene': '21',
                       'title': '%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%845%E4%B8%AA%E5%B0%8F%E8%B4%B4%E5%A3%AB',
-                      'ct': '1513900976', 'abtest_cookie': 'AwABAAoADAANAAcAJIgeALuIHgDhiB4A/IgeAPqJHgAZih4ATYoeAAAA',
-                      'devicetype': 'android-24', 'version': '/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js',
-                      'f': 'json', 'r': '0.7675446466698528', 'is_need_ad': '1', 'comment_id': '3799137919',
-                      'is_need_reward': '1', 'both_ad': '0', 'reward_uin_count': '24', 'msg_daily_idx': '1',
-                      'is_original': '0', 'uin': '777', 'key': '777',
+                      'ct': '1513900976',
+                      'abtest_cookie': 'AwABAAoADAANAAcAJIgeALuIHgDhiB4A/IgeAPqJHgAZih4ATYoeAAAA',
+                      'devicetype': 'android-24',
+                      'version': '/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js',
+                      'f': 'json',
+                      'r': '0.7675446466698528',
+                      'is_need_ad': '1',
+                      'comment_id': '3799137919',
+                      'is_need_reward': '1',
+                      'both_ad': '0',
+                      'reward_uin_count': '24',
+                      'msg_daily_idx': '1',
+                      'is_original': '0',
+                      'uin': '777',
+                      'key': '777',
                       'pass_ticket': 'J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO',
-                      'wxtoken': '204390160', 'clientversion': '26060030',
-                      'appmsg_token': '937_D8gMA6eZWUYVZo6QUXO6keTPdtbgwSEexQWAhnI8XvC1V1BMh3m05cmSURoPtkr5ppr0iDTw7bWgBkMr',
+                      'wxtoken': '204390160',
+                      'clientversion': '26060030',
+                      'appmsg_token': '937_m%2FH3hMbdE6jAR%2FA0mib_faHo270iUiV1o1DPlLprTRqDizFUE48jOyigTTkF94dJK674pW0OY2zBAXeH',
                       'x5': '1'}
 
-        from urllib.parse import urlsplit
-        import html
-        url_params.update(utils.str_to_dict(urlsplit(html.unescape(post.content_url)).query, "&", "="))
+        data_url_params.update(utils.str_to_dict(urlsplit(html.unescape(post.content_url)).query, "&", "="))
         body = "is_only_read=1&req_id=2900i1sqRlQwikp0KEVJieW4&pass_ticket=J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO&is_temp_url=0"
         data = utils.str_to_dict(body, "&", "=")
 
@@ -131,25 +147,25 @@ X-Requested-With: XMLHttpRequest
         
 Host: mp.weixin.qq.com
 Connection: keep-alive
-Content-Length: 137
+Content-Length: 155
 Origin: https://mp.weixin.qq.com
 X-Requested-With: XMLHttpRequest
-User-Agent: Mozilla/5.0 (Linux; Android 7.0; M1 E Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1200(0x26060030) NetType/WIFI Language/zh_CN
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; M1 E Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060133) NetType/WIFI Language/zh_CN
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 Accept: */*
-Referer: https://mp.weixin.qq.com/s?__biz=MjM5MzgyODQxMQ==&mid=2650367680&idx=1&sn=2e8ef8bcf4dc176c46376508cb5a8fa7&chksm=be9cdd9489eb54822dc5993ff71050ca9011aff07fdf642b3eccdee7e20dc2efad9f21fb1a63&scene=21&ascene=7&devicetype=android-24&version=26060030&nettype=WIFI&abtest_cookie=AwABAAoADAANAAcAJIgeALuIHgDhiB4A%2FIgeAPqJHgAZih4ATYoeAAAA&lang=zh_CN&pass_ticket=J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO&wx_header=1
+Referer: https://mp.weixin.qq.com/s?__biz=MjM5MzgyODQxMQ==&mid=2650367727&idx=1&sn=08ce54f6f36873e74c638421012bb495&chksm=be9cddbb89eb54ad436af5c27c0d0db06da7e3aec613a33dd99f935d684a77b555241207f1ba&scene=38&ascene=0&devicetype=android-24&version=26060133&nettype=WIFI&abtest_cookie=AwABAAoADAANAAcAJIgeALuIHgDhiB4A%2FIgeAPqJHgANih4ATYoeAAAA&lang=zh_CN&pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W%2ByLZxcuvpDWlxbBrjvJo3ECB%2BckDAsy%2FTJJK6P&wx_header=1
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,en-US;q=0.8
-Cookie: pgv_info=ssid=s2190841734; pgv_pvid=9172712625; rewardsn=a520f9c4f8c2c14d9ab0; wxtokenkey=902a8ac15e846d9a567021f9652cec8ddd60662aee0c86db3cb47e638f2a4bf5; wxuin=525477518; devicetype=android-24; version=26060030; lang=zh_CN; pass_ticket=J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO; wap_sid2=CI7NyPoBElw4bFowVktRcDNGZFBkSzRxeDNRS1BZclFQYTZXa1hWNWg4THVFN21tVnVJQ1YtZjk5Qml2RjkxTThqcFZJZUFCenZ2cnpiUXhiN2dXcVI4X1pWYUJCS2tEQUFBfjCHspTSBTgNQAE=
-Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.6.0&TBSVC=43602&CO=BK&COVC=043632&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= M1E &RL=1080*1920&OS=7.0&API=24
+Cookie: rewardsn=d869546c45ae3f441da1; wxtokenkey=7127419a2b595541617ad247e35764be168122e88ccbabf980c36139f6b84616; wxuin=525477518; devicetype=android-24; version=26060133; lang=zh_CN; pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W+yLZxcuvpDWlxbBrjvJo3ECB+ckDAsy/TJJK6P; wap_sid2=CI7NyPoBEnBQZDNWZ1dWZjNXcWw5RTBVWllkdE9pOG1tcVRpRzBvclU3X0NOYXZIVXFjbUxlc0VXejlpUmpvaG0xci02Rk9wMHpUTkRQLUF5SGttdV9VMEVOTDBJck5JTjRBMzNRUUpfTWlrZW5FWWtBU3BBd0FBMJvNrtIFOA1AAQ==
+Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.6.1&TBSVC=43602&CO=BK&COVC=043632&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= M1E &RL=1080*1920&OS=7.0&API=24
 Q-GUID: 0fd685fa8c515a30dd9f7caf13b788cb
 Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
         """
 
         headers = utils.str_to_dict(headers)
 
-        url = "https://mp.weixin.qq.com/mp/getappmsgext"
-        r = requests.post(url, data=data, verify=False, params=url_params, headers=headers)
+        data_url = "https://mp.weixin.qq.com/mp/getappmsgext"
+        r = requests.post(data_url, data=data, verify=False, params=data_url_params, headers=headers)
 
         result = r.json()
         if result.get("appmsgstat"):
@@ -159,9 +175,9 @@ Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
             post['u_date'] = datetime.now()
             logger.info("「%s」read_num: %s like_num: %s reward_num: %s" %
                         (post.title, post['read_num'], post['like_num'], post['reward_num']))
-            post.save()
+            # post.save()
         else:
-            logger.warning(u"没有获取的真实数据，请检查请求参数是否正确，data=%s" % r.text)
+            logger.warning(u"没有获取的真实数据，请检查请求参数是否正确，返回的数据为：data=%s" % r.text)
 
 
 if __name__ == '__main__':
@@ -171,7 +187,9 @@ if __name__ == '__main__':
     # 你需要配合Fiddler或者charles通过手机重新加载微信公众号的更多历史消息
     # 从中获取最新的headers和appmsg_token替换上面
     crawler = WeiXinCrawler()
-    crawler.crawl()
-    # for post in Post.objects(read_num=0):
-    #     crawler.update(post)
-    #     time.sleep(1)
+    # crawler.crawl()
+    for post in Post.objects(read_num=0):
+        crawler.update(post)
+        time.sleep(1)
+        break
+
