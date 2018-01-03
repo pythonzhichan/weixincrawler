@@ -11,6 +11,8 @@ import utils
 from models import Post
 
 requests.packages.urllib3.disable_warnings()
+from urllib.parse import urlsplit
+import html
 
 logging.basicConfig(level=logging.INFO)
 
@@ -99,31 +101,33 @@ X-Requested-With: XMLHttpRequest
         except Exception as e:
             logger.error("保存失败 data=%s" % post.to_json(), exc_info=True)
 
-    def update(self, post):
+    @staticmethod
+    def update_post(post):
 
-        post_url_params = {'__biz': 'MjM5MzgyODQxMQ==',
-                           'mid': '2650367149',
-                           'idx': '1',
-                           'sn': '5b9bc4a8029e7eb9b8a4b71d06524da9',
-                           'chksm': 'be9cdff989eb56ef143d5b03fab7e825f08ea6a96d041aa1da50e78e765a75e60d49b42d9bf6',
-                           'scene': '27'}
 
-        url_params = {'__biz': 'MjM5MzgyODQxMQ==', 'appmsg_type': '9', 'mid': '2650367680',
-                      'sn': '2e8ef8bcf4dc176c46376508cb5a8fa7', 'idx': '1', 'scene': '21',
-                      'title': '%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%845%E4%B8%AA%E5%B0%8F%E8%B4%B4%E5%A3%AB',
-                      'ct': '1513900976', 'abtest_cookie': 'AwABAAoADAANAAcAJIgeALuIHgDhiB4A/IgeAPqJHgAZih4ATYoeAAAA',
-                      'devicetype': 'android-24', 'version': '/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js',
-                      'f': 'json', 'r': '0.7675446466698528', 'is_need_ad': '1', 'comment_id': '3799137919',
-                      'is_need_reward': '1', 'both_ad': '0', 'reward_uin_count': '24', 'msg_daily_idx': '1',
-                      'is_original': '0', 'uin': '777', 'key': '777',
-                      'pass_ticket': 'J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO',
-                      'wxtoken': '204390160', 'clientversion': '26060030',
-                      'appmsg_token': '937_D8gMA6eZWUYVZo6QUXO6keTPdtbgwSEexQWAhnI8XvC1V1BMh3m05cmSURoPtkr5ppr0iDTw7bWgBkMr',
-                      'x5': '1'}
+        data_url_params = {'__biz': 'MjM5MzgyODQxMQ==', 'appmsg_type': '9', 'mid': '2650367680',
+                           'sn': '2e8ef8bcf4dc176c46376508cb5a8fa7', 'idx': '1', 'scene': '21',
+                           'title': '%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%845%E4%B8%AA%E5%B0%8F%E8%B4%B4%E5%A3%AB',
+                           'ct': '1513900976',
+                           'abtest_cookie': 'AwABAAoADAANAAcAJIgeALuIHgDhiB4A/IgeAPqJHgAZih4ATYoeAAAA',
+                           'devicetype': 'android-24',
+                           'version': '/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js',
+                           'f': 'json', 'r': '0.7675446466698528', 'is_need_ad': '1', 'comment_id': '3799137919',
+                           'is_need_reward': '1', 'both_ad': '0', 'reward_uin_count': '24', 'msg_daily_idx': '1',
+                           'is_original': '0', 'uin': '777', 'key': '777',
+                           'pass_ticket': 'J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO',
+                           'wxtoken': '204390160', 'clientversion': '26060030',
+                           'appmsg_token': '937_D8gMA6eZWUYVZo6QUXO6keTPdtbgwSEexQWAhnI8XvC1V1BMh3m05cmSURoPtkr5ppr0iDTw7bWgBkMr',
+                           'x5': '1'}
 
-        from urllib.parse import urlsplit
-        import html
-        url_params.update(utils.str_to_dict(urlsplit(html.unescape(post.content_url)).query, "&", "="))
+        # url转义处理
+        content_url = html.unescape(post.content_url)
+        # 截取查询参数部分
+        content_url_params = urlsplit(content_url).query
+        # 将参数转化为字典类型
+        content_url_params = utils.str_to_dict(content_url_params, "&", "=")
+        # 更新到data_url
+        content_url_params.update(content_url_params)
         body = "is_only_read=1&req_id=2900i1sqRlQwikp0KEVJieW4&pass_ticket=J1PFXucN0v4vmF19Pkngffyo4CvzTAkiJNdFJN9uQNIMVLMBFeSl6P8zbfwBJ4sO&is_temp_url=0"
         data = utils.str_to_dict(body, "&", "=")
 
@@ -149,7 +153,7 @@ Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
         headers = utils.str_to_dict(headers)
 
         url = "https://mp.weixin.qq.com/mp/getappmsgext"
-        r = requests.post(url, data=data, verify=False, params=url_params, headers=headers)
+        r = requests.post(url, data=data, verify=False, params=content_url_params, headers=headers)
 
         result = r.json()
         if result.get("appmsgstat"):
@@ -165,7 +169,6 @@ Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
 
 
 if __name__ == '__main__':
-
     # 直接运行这份代码很定或报错，或者根本抓不到数据
     # 因为header里面的cookie信息已经过去，还有URL中的appmsg_token也已经过期
     # 你需要配合Fiddler或者charles通过手机重新加载微信公众号的更多历史消息
