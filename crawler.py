@@ -37,23 +37,27 @@ class WeiXinCrawler:
               "key=777&" \
               "pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W+yLZxcuvpDWlxbBrjvJo3ECB+ckDAsy/TJJK6P&" \
               "wxtoken=&" \
-              "appmsg_token=938_8mF38Lwo0pEMdSKj3kbHYloqANS9CE7-1Wy_pA~~&" \
+              "appmsg_token=938_dFy7Mic8412%2BQG9szSTRTLb2u5DrwFqmTk4ZAg~~&" \
               "x5=1&" \
-              "f=json".format(offset=offset)  # appmsg_token 是临时的
+              "f=json".format(offset=offset)  # appmsg_token 是临时的，也需要更新
 
+        # 从 Fiddler 获取最新的请求头参数
         headers = """
 Host: mp.weixin.qq.com
 Connection: keep-alive
 X-Requested-With: XMLHttpRequest
-User-Agent: Mozilla/5.0 (Linux; Android 7.0; M1 E Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060133) NetType/WIFI Language/zh_CN
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; MI 5 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/043804 Mobile Safari/537.36 MicroMessenger/6.5.23.1180 NetType/WIFI Language/zh_CN
 Accept: */*
-Referer: https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MzgyODQxMQ==&devicetype=android-24&version=26060133&lang=zh_CN&nettype=WIFI&a8scene=7&session_us=gh_c744c4d09c36&pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W%2ByLZxcuvpDWlxbBrjvJo3ECB%2BckDAsy%2FTJJK6P&wx_header=1
+Referer: https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MzgyODQxMQ==&devicetype=android-24&version=26051732&lang=zh_CN&nettype=WIFI&a8scene=7&session_us=gh_c744c4d09c36&pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0&wx_header=1
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,en-US;q=0.8
-Cookie: rewardsn=05c38771473771b68376; wxtokenkey=85cfbccfeb5ea40c4dd1af9f2bf871a94fbb8ad2261ab776fcedd86870248d86; wxuin=525477518; devicetype=android-24; version=26060133; lang=zh_CN; pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W+yLZxcuvpDWlxbBrjvJo3ECB+ckDAsy/TJJK6P; wap_sid2=CI7NyPoBElxYOXJXWHFSNXBxLWNydFQ1UUtlWEZ3LVFQZUozQTNHTVNrNTBqNER5UW1NLUtGM2w2Z1ZDOFFrMVhacWhrWFhxS0YyMXVWZDVJV3ZUaWFZcVVVWDIwS29EQUFBfjCF2LPSBTgMQJRO
-Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.6.1&TBSVC=43602&CO=BK&COVC=043632&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= M1E &RL=1080*1920&OS=7.0&API=24
-Q-GUID: 0fd685fa8c515a30dd9f7caf13b788cb
+Cookie: pgv_pvi=1680185344; pgv_si=s6583349248; wxtokenkey=a40c0cde8d7c0a549e900a166819c80622ce7f12899bd6e25f5d5275ff18f7c6; rewardsn=9a0c2a83b30e5994c162; wxuin=528927841; devicetype=android-24; version=26051732; lang=zh_CN; pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0; wap_sid2=COGYm/wBElxsRzJDSS1ZTjlmLVFTRlBYZ3FiV2NBUGZHLUlnMzU5V3lEV1RsSHhJSVp2aWlZc1lxRW9NTnJfb1pzbUw5Zm9vMzhuZ0plU2N2X2lLRExsWGNSVjdDcW9EQUFBfjC4grfSBTgMQJRO
+Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.5.23&TBSVC=43602&CO=BK&COVC=043804&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= MI5 &RL=1080*1920&OS=7.0&API=24
+Q-GUID: ed3467186e1125bb3d28234d13b788cb
 Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
+
+
+
 """
         headers = utils.str_to_dict(headers)
         response = requests.get(url, headers=headers, verify=False)
@@ -106,54 +110,65 @@ Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
 
     @staticmethod
     def update_post(post):
+        """
+        post 参数是从mongodb读取出来的一条数据
+        稍后就是对这个对象进行更新保存
+        :param post:
+        :return:
+        """
 
-        data_url_params = {'__biz': 'MjM5MzgyODQxMQ==', 'appmsg_type': '9', 'mid': '2650367727',
-                           'sn': '08ce54f6f36873e74c638421012bb495', 'idx': '1', 'scene': '0',
-                           'title': '2017%E5%B9%B4%EF%BC%8C%E6%84%9F%E8%B0%A2%E4%BD%A0%E4%BB%AC%EF%BC%8C2018%E5%B9%B4%EF%BC%8C%E6%88%91%E4%BB%AC%E7%BB%A7%E7%BB%AD%E5%8A%AA%E5%8A%9B%E5%89%8D%E8%A1%8C',
-                           'ct': '1514796292',
-                           'abtest_cookie': 'AwABAAoADAANAAgAJIgeALuIHgDhiB4A/IgeAPqJHgANih4ATYoeAF6KHgAAAA==',
+        # 这个参数是我从Fiddler中拷贝出 URL，然后提取出查询参数部分再转换成字典对象
+        # 稍后会作为参数传给request.post方法
+        data_url_params = {'__biz': 'MjM5MzgyODQxMQ==', 'appmsg_type': '9', 'mid': '2650367540',
+                           'sn': 'ef9c6353a9255dbc00e2beac7f449dad', 'idx': '1', 'scene': '27',
+                           'title': 'Python%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%EF%BC%8C%E7%9C%8B%E7%9C%8B%E4%BD%A0%E7%9F%A5%E9%81%93%E5%87%A0%E4%B8%AA',
+                           'ct': '1511410410',
+                           'abtest_cookie': 'AwABAAoADAANAAcAJIgeAGSIHgD8iB4A7IkeAAaKHgAPih4AU4oeAAAA',
                            'devicetype': 'android-24',
                            'version': '/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js', 'f': 'json',
-                           'r': '0.6452677228890584', 'is_need_ad': '1', 'comment_id': '1741225191',
+                           'r': '0.04959653583814139', 'is_need_ad': '0', 'comment_id': '1411699821',
                            'is_need_reward': '1', 'both_ad': '0', 'reward_uin_count': '24', 'msg_daily_idx': '1',
                            'is_original': '0', 'uin': '777', 'key': '777',
-                           'pass_ticket': 'mXHYjLnkYux1rXx8BxNrZpgW4W%252ByLZxcuvpDWlxbBrjvJo3ECB%252BckDAsy%252FTJJK6P',
-                           'wxtoken': '1805512665', 'clientversion': '26060133',
-                           'appmsg_token': '938_VN3Rr7O4RIU7lm%2F8_amSJbZBo3RJXACjIMDwDu5ZPbSm2_SW6RpnZGb2Vrp6ECxr9y5QoVCI7H-iQotJ',
-                           'x5': '1'}
+                           'pass_ticket': 'zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0',
+                           'wxtoken': '1922467438', 'clientversion': '26051732',
+                           'appmsg_token': '938_0n0in1TAhMHhtZ7zXIOyxTxYXZEFW7ez7tXTmochNzKXa19P3wxK6-C-yM1omM_h7gSMZJmyv7glw98g',
+                           'x5': '1'} # appmsg_token 记得用最新的
 
         # url转义处理
         content_url = html.unescape(post.content_url)
-        # 截取查询参数部分
+        # 截取content_url的查询参数部分
         content_url_params = urlsplit(content_url).query
         # 将参数转化为字典类型
         content_url_params = utils.str_to_dict(content_url_params, "&", "=")
         # 更新到data_url
         data_url_params.update(content_url_params)
-        body = "is_only_read=1&req_id=03230SZyTR8kQlPVkKwxbt1A&pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W%25252ByLZxcuvpDWlxbBrjvJo3ECB%25252BckDAsy%25252FTJJK6P&is_temp_url=0"
+        body = "is_only_read=1&req_id=0414NBNjylwrVHDydtl3ufse&pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0&is_temp_url=0"
         data = utils.str_to_dict(body, "&", "=")
 
+        # 通过Fiddler 获取 最新的值
         headers = """
 Host: mp.weixin.qq.com
 Connection: keep-alive
-Content-Length: 155
+Content-Length: 137
 Origin: https://mp.weixin.qq.com
 X-Requested-With: XMLHttpRequest
-User-Agent: Mozilla/5.0 (Linux; Android 7.0; M1 E Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043632 Safari/537.36 MicroMessenger/6.6.1.1220(0x26060133) NetType/WIFI Language/zh_CN
+User-Agent: Mozilla/5.0 (Linux; Android 7.0; MI 5 Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/043804 Mobile Safari/537.36 MicroMessenger/6.5.23.1180 NetType/WIFI Language/zh_CN
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 Accept: */*
-Referer: https://mp.weixin.qq.com/s?__biz=MjM5MzgyODQxMQ==&mid=2650367727&idx=1&sn=08ce54f6f36873e74c638421012bb495&chksm=be9cddbb89eb54ad436af5c27c0d0db06da7e3aec613a33dd99f935d684a77b555241207f1ba&scene=0&ascene=7&devicetype=android-24&version=26060133&nettype=WIFI&abtest_cookie=AwABAAoADAANAAgAJIgeALuIHgDhiB4A%2FIgeAPqJHgANih4ATYoeAF6KHgAAAA%3D%3D&lang=zh_CN&pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W%2ByLZxcuvpDWlxbBrjvJo3ECB%2BckDAsy%2FTJJK6P&wx_header=1
+Referer: https://mp.weixin.qq.com/s?__biz=MjM5MzgyODQxMQ==&mid=2650367558&idx=1&sn=b8be74571b14f78d80c062ded89b2d4a&chksm=be9cdd1289eb5404f1b423a135ce5adf5d2cf802a09014b6f407c96b40fdc88ce6e4e0ed8665&scene=27&ascene=0&devicetype=android-24&version=26051732&nettype=WIFI&abtest_cookie=AwABAAoADAANAAcAJIgeAGSIHgD8iB4A7IkeAAaKHgAPih4AU4oeAAAA&lang=zh_CN&pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0&wx_header=1
 Accept-Encoding: gzip, deflate
 Accept-Language: zh-CN,en-US;q=0.8
-Cookie: rewardsn=05c38771473771b68376; wxtokenkey=92c034f1d4d5cfe011a9222522d96c3af508a6e35160b5f6fefa185431bda832; wxuin=525477518; devicetype=android-24; version=26060133; lang=zh_CN; pass_ticket=mXHYjLnkYux1rXx8BxNrZpgW4W+yLZxcuvpDWlxbBrjvJo3ECB+ckDAsy/TJJK6P; wap_sid2=CI7NyPoBElx2ZFNJVXFOVFh2S3U5X1hLS2pZb2Z0Ujd1NTBPdlMzbEpwMjdVRlYtTHluRWkwZzIwUzY4ZVM3Y294MzU5aDM5eWxfRWVKOVJoY0dvVmZuQTk2S1JLS29EQUFBfjCQ5LPSBTgNQAE=
-Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.6.1&TBSVC=43602&CO=BK&COVC=043632&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= M1E &RL=1080*1920&OS=7.0&API=24
-Q-GUID: 0fd685fa8c515a30dd9f7caf13b788cb
+Cookie: pgv_pvi=1680185344; pgv_si=s6583349248; rewardsn=9a0c2a83b30e5994c162; wxtokenkey=71bdfbb7fad39d08d2eb2dece479971297781391293c3c913e74f0f1c4c16971; wxuin=528927841; devicetype=android-24; version=26051732; lang=zh_CN; pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0; wap_sid2=COGYm/wBElxvYUdHZDdpUlExT2h3MnVTMS1nendPdUlZZ1BsU2h3ZUhibGNNQTRMS0t1dXhPQS1YUHNZNGdhQXk2Z0F0WkF0U3dGVUlYNnBHdlVTVEk0aHBOMktXS29EQUFBfjCyjLfSBTgNQAE=
+Q-UA2: QV=3&PL=ADR&PR=WX&PP=com.tencent.mm&PPVN=6.5.23&TBSVC=43602&CO=BK&COVC=043804&PB=GE&VE=GA&DE=PHONE&CHID=0&LCID=9422&MO= MI5 &RL=1080*1920&OS=7.0&API=24
+Q-GUID: ed3467186e1125bb3d28234d13b788cb
 Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
+
         """
 
         headers = utils.str_to_dict(headers)
 
         data_url = "https://mp.weixin.qq.com/mp/getappmsgext"
+
         r = requests.post(data_url, data=data, verify=False, params=data_url_params, headers=headers)
 
         result = r.json()
@@ -167,6 +182,7 @@ Q-Auth: 31045b957cf33acf31e40be2f3e71c5217597676a9729f1b
             post.save()
         else:
             logger.warning(u"没有获取的真实数据，请检查请求参数是否正确，返回的数据为：data=%s" % r.text)
+            exit()
 
 
 if __name__ == '__main__':
@@ -176,7 +192,9 @@ if __name__ == '__main__':
     # 从中获取最新的headers和appmsg_token替换上面
     crawler = WeiXinCrawler()
     # crawler.crawl()
-    for post in Post.objects(read_num=0):
+    # s = "__biz=MjM5MzgyODQxMQ==&appmsg_type=9&mid=2650367540&sn=ef9c6353a9255dbc00e2beac7f449dad&idx=1&scene=27&title=Python%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7%EF%BC%8C%E7%9C%8B%E7%9C%8B%E4%BD%A0%E7%9F%A5%E9%81%93%E5%87%A0%E4%B8%AA&ct=1511410410&abtest_cookie=AwABAAoADAANAAcAJIgeAGSIHgD8iB4A7IkeAAaKHgAPih4AU4oeAAAA&devicetype=android-24&version=/mmbizwap/zh_CN/htmledition/js/appmsg/index3a9713.js&f=json&r=0.04959653583814139&is_need_ad=0&comment_id=1411699821&is_need_reward=1&both_ad=0&reward_uin_count=24&msg_daily_idx=1&is_original=0&uin=777&key=777&pass_ticket=zpU4AwNXTGS5LfBXFx4NCyMo5YTpSQo9RarrPG3tjhmMaGfORzykNNviX7IlM4i0&wxtoken=1922467438&devicetype=android-24&clientversion=26051732&appmsg_token=938_0n0in1TAhMHhtZ7zXIOyxTxYXZEFW7ez7tXTmochNzKXa19P3wxK6-C-yM1omM_h7gSMZJmyv7glw98g&x5=1&f=json"
+    # print(utils.str_to_dict(s, "&", "="))
+    #
+    for post in Post.objects(reward_num=0):
         crawler.update_post(post)
         time.sleep(1)
-
