@@ -198,3 +198,4 @@ if __name__ == '__main__':
     for post in Post.objects(reward_num=0):
         crawler.update_post(post)
         time.sleep(1)
+
