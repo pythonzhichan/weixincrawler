@@ -22,25 +22,26 @@ def sub_dict(d, keys):
     return {k: html.unescape(d[k]) for k in d if k in keys}
 
 
-def str_to_dict(s, join_symbol="\n", split_symbol=":"):
+def str_to_dict(s, join="\n", append=":"):
     """
-    key与value通过split_symbol连接， key,value 对之间使用join_symbol连接
+    将由键值对组成的字符串转换成字典类型
+
     例如： a=b&c=d   join_symbol是&, split_symbol是=
     :param s: 原字符串
-    :param join_symbol: 连接符
-    :param split_symbol: 分隔符
-    :return: 字典
+    :param join: 多個鍵值對之間的连接符， k1=v1&k2=v2
+    :param append: key與value的連接符 key&value
+    :return: dict
     """
-    s_list = s.split(join_symbol)
+    s_list = s.split(join)
     data = dict()
     for item in s_list:
         item = item.strip()
         if item:
-            k, v = item.split(split_symbol, 1)
+            k, v = item.split(append, 1)
             data[k] = v.strip()
     return data
 
 
 if __name__ == '__main__':
-    d = {"a": "1", "b": 2, "c": 3}
-    print(sub_dict(d, ["a", "b"]))
+    url = "action=getmsg&__biz=MjM5MzgyODQxMQ==&f=json&offset=13&count=10&is_ok=1&scene=124&uin=777&key=777&pass_ticket=%2B8w2Z8mhF4GH%2BNSPyUvZwwQjXrgXNULyll%2Fj9r7UwXOHHv2W%2FijB%2F%2BmBd9%2Bj16qc&wxtoken=&appmsg_token=941_XYFSVfr6tB9dZxRhgbPir_JGecvDUol-xn6lLg~~&x5=0&f=json"
+    print(str_to_dict(url, join="&", append="="))
